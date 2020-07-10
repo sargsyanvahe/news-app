@@ -39,7 +39,7 @@ class ContactForm extends React.PureComponent {
 
     validate = (fields) => {
 
-        const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+        const re = /^\w+(\[\+\.-\]?\w)*@\w+(\[\.-\]?\w+)*\.[a-z]+$/i;
 
         let errors = {};
 
@@ -48,7 +48,7 @@ class ContactForm extends React.PureComponent {
                 errors[el] = 'Please fill field';
             }
 
-            if (el === 'email' && fields[el] && !validEmailRegex.test(fields[el])) {
+            if (el === 'email' && fields[el] && !re.test(fields[el])) {
                 errors[el] = 'Not Valid Email'
             }
 

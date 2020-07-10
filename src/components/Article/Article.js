@@ -19,6 +19,8 @@ function timeFormat(date) {
         })
 }
 
+//---
+
 export default function Article({ article, handleCloseModal }) {
     return (
         <div className='article-container'>
@@ -33,7 +35,7 @@ export default function Article({ article, handleCloseModal }) {
                 <p className='article-description'>{article.description}</p>
                 <div>
                     <span>Published at: {timeFormat(article.publishedAt)} (Local time)</span>
-                    <a href={article.url} target='_blank'><span>Go to source page</span></a>
+                    <a href={article.url} rel="noopener noreferrer" target='_blank'><span>Go to source page</span></a>
                 </div>
                 <button className='btn' onClick={handleCloseModal}>Close</button>
             </div>
